@@ -22,6 +22,7 @@ import java.util.stream.Stream;
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://localhost:8080/texoit/";
+    public static final String filePath = "/home/andrey/Downloads/movielist.csv";
     public static List<Movie> movies = new ArrayList<Movie>();
 
     /**
@@ -50,20 +51,11 @@ public class Main {
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
         
         try {
-       	 MovieRepository _mRepository = new MovieRepository();
-            String filePath = "/home/andrey/Downloads/movielist.csv";
-            
-            System.out.println("Loading...");
+       	 	MovieRepository _mRepository = new MovieRepository();
             Stream<String> lines = FileUtils.loadCSV(filePath);
-            if (lines != null) {
+            if (lines != null) 
             	movies = _mRepository.loadMovies(lines);
-            	if (movies.isEmpty()) {
-            		throw new Exception("Nenhum filme carregado!");
-            	} else {
-            		System.out.println(String.format("%s movies!", movies.size()));
-            	}
-            }
-           
+            
             System.out.println("All done!");
             System.in.read();
             server.shutdownNow();

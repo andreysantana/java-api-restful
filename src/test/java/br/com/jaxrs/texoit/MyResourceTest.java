@@ -1,21 +1,21 @@
 package br.com.jaxrs.texoit;
 
-import jakarta.ws.rs.client.Client;
-import jakarta.ws.rs.client.ClientBuilder;
-import jakarta.ws.rs.client.WebTarget;
-
 import org.glassfish.grizzly.http.server.HttpServer;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 
-public class MyResourceTest {
+import br.com.jaxrs.texoit.entities.Interval;
+import br.com.jaxrs.texoit.utils.FileUtils;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.WebTarget;
+import junit.framework.TestCase;
 
-    private HttpServer server;
+public class MyResourceTest extends TestCase {
+	private HttpServer server;
     private WebTarget target;
-
+    
     @Before
     public void setUp() throws Exception {
         // start the server
@@ -37,12 +37,9 @@ public class MyResourceTest {
         server.shutdownNow();
     }
 
-    /**
-     * Test to see that the message "Got it!" is sent in the response.
-     */
     @Test
-    public void testGetIt() {
-        String responseMsg = target.path("myresource").request().get(String.class);
-        assertEquals("Got it!", responseMsg);
+    public void testGetIntervals() {
+        String responseMsg = target.path("producers").request().get(String.class);
+        assertEquals("{\"min\":null,\"max\":null}", responseMsg);
     }
 }

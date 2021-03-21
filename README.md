@@ -10,7 +10,6 @@ Tabela de conteúdos
    * [Tabela de conteúdos](#tabela-de-conteúdos)
    * [Pré-requisitos](#pré-requisitos)
    * [Clonando a aplicação](#clonando-a-aplicação)
-   * [Configurando a aplicação](#configurando-a-aplicação)
    * [Conteúdo](#conteúdo)
    * [Exemplo de resposta](#exemplo-de-resposta)
    * [Uso](#uso)
@@ -30,9 +29,6 @@ Pré-requisitos
 Clonando a aplicação
 --------------------
 >     git clone git@github.com:andreysantana/java-api-restful.git
-
-Configurando a aplicação
-------------------------
 
 Conteúdo
 --------

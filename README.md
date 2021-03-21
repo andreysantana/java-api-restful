@@ -3,16 +3,16 @@
 
 API RESTful para possibilitar a leitura da lista de indicados e vencedores da categoria Pior Filme do Golden Raspberry Awards.
 
-Tabela de Conteúdos
+Tabela de conteúdos
 ===================
 
 <!--ts-->
-   * [Tabela de Conteúdos](#tabela-de-conteúdos)
+   * [Tabela de conteúdos](#tabela-de-conteúdos)
    * [Pré-requisitos](#pré-requisitos)
    * [Clonando a aplicação](#clonando-a-aplicação)
    * [Configurando a aplicação](#configurando-a-aplicação)
    * [Conteúdo](#conteúdo)
-   * [Exemplo de Resposta](#exemplo-de-resposta)
+   * [Exemplo de resposta](#exemplo-de-resposta)
    * [Uso](#uso)
       * [Executando a aplicação por linha de comando](#executando-a-aplicação-por-linha-de-comando)
       * [Executando a aplicação pela IDE](#executando-a-aplicação-pela-ide)

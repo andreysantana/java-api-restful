@@ -15,10 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-/**
- * Main class.
- *
- */
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://localhost:8080/texoit/";
@@ -30,13 +26,9 @@ public class Main {
      * @return Grizzly HTTP server.
      */
     public static HttpServer startServer() {
-        // create a resource config that scans for JAX-RS resources and providers
-        // in br.com.jaxrs.texoit package
         final ResourceConfig rc = new ResourceConfig().packages("br.com.jaxrs.texoit");
         rc.register(new ApplicationBinder());
-
-        // create and start a new instance of grizzly http server
-        // exposing the Jersey application at BASE_URI
+        
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
 

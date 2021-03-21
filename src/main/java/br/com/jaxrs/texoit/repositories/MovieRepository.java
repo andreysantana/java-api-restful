@@ -3,6 +3,7 @@ package br.com.jaxrs.texoit.repositories;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,7 +23,9 @@ public class MovieRepository {
 	
 	public List<Movie> loadMovies(Stream<String> records) throws Exception {
 		try {
-		    return records.skip(1).map(mapToItem).collect(Collectors.toList());
+		    return records.skip(1).map(mapToItem)
+		    		.filter(Objects::nonNull)
+		    		.collect(Collectors.toList());
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		}

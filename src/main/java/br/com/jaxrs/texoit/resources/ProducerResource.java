@@ -12,10 +12,9 @@ import jakarta.ws.rs.core.Response;
 @Path("producers")
 public class ProducerResource extends AbstractWS {
 	
-	@Inject ProducerRepository _producerRepository;
+	 @Inject ProducerRepository _producerRepository;
 
 	 @GET 
-	 //@Path("getIntervals")
 	 @Produces(MediaType.APPLICATION_JSON) 
 	 public Response getIntervals() throws Exception { 
 		 return Response.ok(convertToJson(_producerRepository.getIntervals())).build(); 

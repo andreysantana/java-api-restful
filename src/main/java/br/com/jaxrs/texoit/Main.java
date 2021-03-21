@@ -1,5 +1,14 @@
 package br.com.jaxrs.texoit;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -9,17 +18,10 @@ import br.com.jaxrs.texoit.repositories.MovieRepository;
 import br.com.jaxrs.texoit.utils.ApplicationBinder;
 import br.com.jaxrs.texoit.utils.FileUtils;
 
-import java.io.IOException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
-
 public class Main {
-    // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://localhost:8080/texoit/";
-    public static final String filePath = "/home/andrey/Downloads/movielist.csv";
     public static List<Movie> movies = new ArrayList<Movie>();
+    public static final String filePath = "src/movielist.csv";
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
@@ -42,9 +44,12 @@ public class Main {
         System.out.println(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
         
+        File resourceFile = new File("./movielist.csv");
+        System.out.println(resourceFile.getAbsolutePath());
+
         try {
        	 	MovieRepository _mRepository = new MovieRepository();
-            Stream<String> lines = FileUtils.loadCSV(filePath);
+            Stream<String> lines = FileUtils.loadCSV();
             if (lines != null) 
             	movies = _mRepository.loadMovies(lines);
             

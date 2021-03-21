@@ -5,16 +5,19 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+import br.com.jaxrs.texoit.Main;
+
 public class FileUtils {
 	
 	public FileUtils() {}
 	
-	public static Stream<String> loadCSV(final String filePath) throws Exception {
+	public static Stream<String> loadCSV() throws Exception {
 		Stream<String> records = null;
+		Path path = Paths.get(Main.filePath);
+		//System.out.println(Files.readString(path));
 		try {
-			if (isValidFile(filePath)) {
-				records = Files.lines(Paths.get(filePath));
-			}
+			if (isValidFile(path)) 
+				records = Files.lines(path);
 
 			return records;
 		} catch (Exception e) {
@@ -22,10 +25,9 @@ public class FileUtils {
 		}
 	}
 	
-	public static boolean isValidFile(final String filePath) {
-		Path path = null;
+	public static boolean isValidFile(final Path path) {
+		String filePath = path.getFileName().toString();
 		try {
-			path = Paths.get(filePath);
 			if (filePath == null
 					|| filePath.isEmpty() 
 					|| !Files.exists(path) 
@@ -34,9 +36,7 @@ public class FileUtils {
 			} 
 		} catch (Exception e) {
 			return false;
-		} finally {
-			path = null;
-		}
+		} 
 		return true;
 	}
 }

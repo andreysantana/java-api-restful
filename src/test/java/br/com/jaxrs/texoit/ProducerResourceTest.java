@@ -28,7 +28,7 @@ public class ProducerResourceTest extends TestCase {
     }
         
     @Test
-    public void testGetIntervals() {
+    public void testGet() {
         String response = target.path("producers").request().get(String.class);
         assertEquals("{\"min\":null,\"max\":null}", response);
     }

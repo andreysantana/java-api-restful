@@ -44,9 +44,6 @@ public class Main {
         System.out.println(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
         
-        File resourceFile = new File("./movielist.csv");
-        System.out.println(resourceFile.getAbsolutePath());
-
         try {
        	 	MovieRepository _mRepository = new MovieRepository();
             Stream<String> lines = FileUtils.loadCSV();

@@ -72,7 +72,7 @@ Executando a aplicação por linha de comando
 
 Rodar testes de integração:
 
->     mvn clean compile exec:java
+>     mvn clean test
 
 Rodar aplicação:
 

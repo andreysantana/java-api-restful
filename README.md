@@ -43,7 +43,7 @@ URI path                         | Resource class           | HTTP method   |
 -------------------------------- | ------------------------ | ------------- | 
 /producers                       | ProducerResource         | GET          | 
 
-Exemplo de Resposta
+Exemplo de resposta
 -------------------
 
 A aplicação deve retornar:

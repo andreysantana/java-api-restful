@@ -55,10 +55,10 @@ public class ProducerRepository {
 		for (Movie movie : winMovies) {
 			for (Producer producer : movie.getProducers()) {
 				
-				Optional<Producer> matchingProducer = winProducers.stream().
-					    filter(p -> p.getName().equals(producer.getName())).
-					    findFirst();
-				
+				Optional<Producer> matchingProducer = winProducers.stream()
+						.filter(p -> p.getName().equals(producer.getName()))
+						.reduce((first, second) -> second);
+					
 				if (matchingProducer.isEmpty()) {
 					winProducer = new Producer();
 					winProducer.setName(producer.getName());

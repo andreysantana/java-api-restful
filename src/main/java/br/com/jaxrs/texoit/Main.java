@@ -45,7 +45,7 @@ public class Main {
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
         
         try {
-       	 	MovieRepository _mRepository = new MovieRepository();
+        	MovieRepository _mRepository = new MovieRepository();
             Stream<String> lines = FileUtils.loadCSV();
             if (lines != null) 
             	movies = _mRepository.loadMovies(lines);
